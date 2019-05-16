@@ -14,8 +14,8 @@
 
   const recognition = new SpeechRecognition();
   recognition.interimResults = true;
-  recognition.lang = 'mr-IN';
-  
+  recognition.lang = 'en-IN'; //for marathi replace en-IN to mr-IN
+   
   let p = document.createElement('p');
   const words = document.querySelector('.words');
   words.appendChild(p);
@@ -26,8 +26,8 @@
       .map(result => result.transcript)
       .join('');
 
-      const poopScript = transcript.replace(/poop|poo|shit|dump/gi, '💩');
-      p.textContent = poopScript;
+
+      p.textContent = transcript;
 
       if (e.results[0].isFinal) {
         p = document.createElement('p');
@@ -48,7 +48,7 @@
     }
 
     body {
-      background: #ffc600;
+      background: blueviolet;
       font-family: 'helvetica neue';
       font-weight: 200;
       font-size: 20px;
